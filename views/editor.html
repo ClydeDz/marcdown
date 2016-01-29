@@ -1,0 +1,24 @@
+﻿<div class="row">
+    <div class="col-xs-12 col-md-6 text-space">
+        <p class="input-label">Input</p>
+        <form class="form">
+            <textarea ng-model="markdownContent" cols="60" rows="5" class="form-control" name="txtareaContent" id="inputTextArea">
+            </textarea><br />
+        </form>
+    </div>
+    <div class="col-xs-12 col-md-6 text-space output-space">
+        <p>Output</p>
+        <div marked="markdownContent" class="output"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12 meta-label">
+        <span>Word count: {{ markdownContent.length }} |</span>
+        <span> Download as:<span class="visible-xs-block hidden-sm-block hidden-md-block hidden-lg-block"><br /></span>
+            <a ng-click="downloadText(markdownContent)"><i class="fa fa-file-text-o"></i>.txt</a>
+            <a ng-click="downloadMarkdown(markdownContent)"><i class="fa fa-file-o"></i>.md</a>
+            <a ng-click="openPdf()"><i class="fa fa-file-pdf-o"></i>.pdf</a>
+            <span class="visible-xs-block hidden-sm-block hidden-md-block hidden-lg-block"><br /></span>
+        </span>        
+    </div>
+</div>
