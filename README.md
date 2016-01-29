@@ -1,5 +1,5 @@
 #Marcdown
-### What is marcdown?
+### What is Marcdown?
 Marcdown is an online Markdown editor crafted by Clyde D'Souza. It is available at [www.marcdown.azurewebsites.net](http://marcdown.azurewebsites.net/).
 
 You might find it useful to know more about Markdown (if you don't know about it yet) using the links below and use [Marcdown](http://marcdown.azurewebsites.net/) to practice what you have learnt.  
