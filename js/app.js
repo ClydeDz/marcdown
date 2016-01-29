@@ -1,4 +1,10 @@
-﻿// app.js
+﻿/*
+ * Marcdown - the online Markdown editor by Clyde D'Souza
+ * app.js
+ * Clyde D'Souza (http://goo.gl/8yXVaA)
+ * Github @ClydeDz | Twitter @ClydeDz
+ */
+
 angular.module("marcdown", ['hc.marked', 'ngRoute', 'ngFileSaver']);
 
 // Configuration for routing and switching between help and editor views
@@ -12,7 +18,7 @@ angular.module('marcdown')
 // controller
 angular.module("marcdown")
     .controller("IndexController", ['$scope', 'FileSaver', 'Blob', function IndexController($scope, FileSaver, Blob) {
-        $scope.markdownContent = "";
+        $scope.markdownContent = "## Type your **content** *here*";
         $scope.menuItem = 1;
         $scope.wordCount = ($scope.markdownContent).toString().length;
 
