@@ -5,13 +5,14 @@
  * Github @ClydeDz | Twitter @ClydeDz
  */
 
+//
 angular.module("marcdown", ['hc.marked', 'ngRoute', 'ngFileSaver']);
 
 // Configuration for routing and switching between help and editor views
 angular.module('marcdown')
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-        .when("/", { templateUrl: "/views/editor.html", controller: "IndexController" })
+        .when("/", { templateUrl: "/views/editor.html",  controller: "IndexController" })
         .when("/help", { templateUrl: "/views/help.html", controller: "HelpController" });
     }]);
 
@@ -22,13 +23,17 @@ angular.module("marcdown")
         $scope.menuItem = 1;
         $scope.wordCount = ($scope.markdownContent).toString().length;
 
+        $scope.downloadWord = function (x) {
+            $scope.data = new Blob([$scope.markdownContent], { type: 'application/msword' });
+            FileSaver.saveAs($scope.data, 'marcdown.doc');
+        };
         $scope.downloadText = function (x) {
             $scope.data = new Blob([$scope.markdownContent], { type: 'text/plain;charset=utf-8' });
-            FileSaver.saveAs($scope.data, 'text.txt');
+            FileSaver.saveAs($scope.data, 'marcdown.txt');
         };
         $scope.downloadMarkdown = function (x) {
             $scope.datamd = new Blob([$scope.markdownContent], { type: 'text/markdown' });
-            FileSaver.saveAs($scope.datamd, 'text.md');
+            FileSaver.saveAs($scope.datamd, 'marcdown.md');
         };
         $scope.openPdf = function () {
             var dd = {
@@ -38,7 +43,7 @@ angular.module("marcdown")
                     margin:[40, 0, 0, 0]
                 }
             };
-            createPdf(dd).download();
+            createPdf(dd).download('marcdown.pdf');
         };
     }]);
 
